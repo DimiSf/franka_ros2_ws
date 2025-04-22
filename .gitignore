@@ -1,0 +1,16 @@
+# Colcon build artifacts
+build/
+install/
+log/
+
+# Editor metadata
+.vscode/
+*.swp
+.DS_Store
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Temp files
+*~
