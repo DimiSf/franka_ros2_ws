@@ -1,16 +1,16 @@
-# Colcon build artifacts
+# ROS 2 build folders
 build/
 install/
 log/
 
-# Editor metadata
-.vscode/
-*.swp
-.DS_Store
-
-# Python caches
+# Python cache
 __pycache__/
 *.pyc
 
-# Temp files
-*~
+# VS Code settings
+.vscode/
+
+# ROS 2 launch logs and debug
+*.launch.py~
+
+
