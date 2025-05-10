@@ -22,6 +22,7 @@ setup(
     'console_scripts': [
         'simple_pick_place = franka_demos.simple_pick_place:main',
         'joint_goal_demo = franka_demos.joint_goal_demo:main',
+        'play_trajectory = franka_demos.play_trajectory:main',
         ],
     }
 
