@@ -1,1 +1,4 @@
-<pre><code>```bash # 1. Open a terminal and navigate to your workspace cd ~/franka_ros2_ws # 2. Verify you're on the correct branch git branch # → should display: * main # 3. Pull the latest changes from GitHub git pull origin main # 4. Stage all modified and new files git add . # 5. Commit your changes with a descriptive message git commit -m "Describe what you changed" # 6. Push your committed changes to GitHub git push origin main ``` </code></pre>
+1. **Open a terminal and navigate to your workspace**
+
+```bash
+cd ~/franka_ros2_ws
