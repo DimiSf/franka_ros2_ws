@@ -54,8 +54,8 @@ controller_interface::return_type JointImpedanceExampleController::update(
   elapsed_time_ = elapsed_time_ + period.seconds();
 
   double delta_angle = M_PI / 8.0 * (1 - std::cos(M_PI / 2.5 * elapsed_time_));
+  q_goal(1) += delta_angle;
   q_goal(3) += delta_angle;
-  q_goal(4) += delta_angle;
 
   const double kAlpha = 0.99;
   dq_filtered_ = (1 - kAlpha) * dq_filtered_ + kAlpha * dq_;

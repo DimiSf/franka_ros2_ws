@@ -106,13 +106,32 @@ def generate_launch_description():
         launch_arguments={'gz_args': 'empty.sdf -r', }.items(),
     )
 
+    # Spawn the lab table model
+    spawn_table = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=[
+            '-name', 'lab_table',
+            '-file', os.path.join(
+                get_package_share_directory('franka_gazebo_bringup'),
+                'models', 'lab_table', 'model.sdf'
+            ),
+            '-x', '-0.331074',
+            '-y', '0.078564',
+            '-z', '0.480',
+            '-Y', '1.5676'  # ← yaw in radians
+        ],
+        output='screen'
+    )
+
     # Spawn
     spawn = Node(
         package='ros_gz_sim',
         executable='create',
-        arguments=['-topic', '/robot_description'],
+        arguments=['-topic', '/robot_description', '-z', '0.481'],
         output='screen',
     )
+
 
     # Visualize in RViz
     rviz_file = os.path.join(get_package_share_directory('franka_description'), 'rviz',
@@ -142,7 +161,9 @@ def generate_launch_description():
         gazebo_empty_world,
         robot_state_publisher,
         rviz,
+        spawn_table,
         spawn,
+        
         RegisterEventHandler(
                 event_handler=OnProcessExit(
                     target_action=spawn,
